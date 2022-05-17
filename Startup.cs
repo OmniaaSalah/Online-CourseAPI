@@ -87,6 +87,7 @@ namespace API_Part_Project
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped< IUserAddressRepository,UserAddressRepository> ();
             services.AddScoped<IUserMobileRepository, UserMobileRepository>();
+            services.AddScoped<ICartRepository, CartRepository>();
             services.AddIdentity<Users, IdentityRole>().AddEntityFrameworkStores<E_Commerce>();
             // services.AddScoped<IUserRepository, UserRepository>();
 

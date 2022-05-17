@@ -7,6 +7,7 @@ namespace API_Part_Project.Models
     {
      
         public DbSet<Categories> categories { get; set; }
+        public DbSet<ProductsCart> cart{ get; set; }
         public DbSet<Products> products { get; set; }
         public DbSet<Useraddress> userAddress { get; set; }
         public DbSet<Usermobile> userMobile { get; set; }

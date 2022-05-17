@@ -212,7 +212,7 @@ namespace API_Part_Project.Controllers
         [HttpGet("Admins")]
         public async Task< IActionResult> GetAlladmin()
         {
-            var i = 0;
+           
            List<Users> Admins = new List<Users>();
            var users = userManager.Users.ToList();
             if (users.Count != 0)

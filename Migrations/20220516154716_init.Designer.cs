@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Part_Project.Migrations
 {
     [DbContext(typeof(E_Commerce))]
-    [Migration("20220509163231_init")]
+    [Migration("20220516154716_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,6 +63,30 @@ namespace API_Part_Project.Migrations
                     b.HasIndex("CateogryiD");
 
                     b.ToTable("products");
+                });
+
+            modelBuilder.Entity("API_Part_Project.Models.ProductsCart", b =>
+                {
+                    b.Property<int>("ProductID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Unitprice")
+                        .HasColumnType("int");
+
+                    b.Property<int>("productcount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("totalquantityofthisproduct")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductID");
+
+                    b.ToTable("cart");
                 });
 
             modelBuilder.Entity("API_Part_Project.Models.Useraddress", b =>
@@ -316,7 +340,7 @@ namespace API_Part_Project.Migrations
             modelBuilder.Entity("API_Part_Project.Models.Products", b =>
                 {
                     b.HasOne("API_Part_Project.Models.Categories", "category")
-                        .WithMany("products")
+                        .WithMany()
                         .HasForeignKey("CateogryiD")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -393,11 +417,6 @@ namespace API_Part_Project.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("API_Part_Project.Models.Categories", b =>
-                {
-                    b.Navigation("products");
                 });
 
             modelBuilder.Entity("API_Part_Project.Models.Users", b =>

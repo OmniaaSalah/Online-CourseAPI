@@ -22,6 +22,22 @@ namespace API_Part_Project.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "cart",
+                columns: table => new
+                {
+                    ProductID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    productcount = table.Column<int>(type: "int", nullable: false),
+                    Unitprice = table.Column<int>(type: "int", nullable: false),
+                    totalquantityofthisproduct = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_cart", x => x.ProductID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "categories",
                 columns: table => new
                 {
@@ -303,6 +319,9 @@ namespace API_Part_Project.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "cart");
 
             migrationBuilder.DropTable(
                 name: "products");
