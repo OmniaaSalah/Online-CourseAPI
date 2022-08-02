@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Desktop\\ITI Traning\\Web ApI\\project\\API Part Project\\API Part Project\\API Part Project.csproj": {}
+    "D:\\Val Squad\\API Part Project\\API Part Project\\API Part Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Desktop\\ITI Traning\\Web ApI\\project\\API Part Project\\API Part Project\\API Part Project.csproj": {
+    "D:\\Val Squad\\API Part Project\\API Part Project\\API Part Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Desktop\\ITI Traning\\Web ApI\\project\\API Part Project\\API Part Project\\API Part Project.csproj",
+        "projectUniqueName": "D:\\Val Squad\\API Part Project\\API Part Project\\API Part Project.csproj",
         "projectName": "API Part Project",
-        "projectPath": "C:\\Users\\DELL\\Desktop\\ITI Traning\\Web ApI\\project\\API Part Project\\API Part Project\\API Part Project.csproj",
+        "projectPath": "D:\\Val Squad\\API Part Project\\API Part Project\\API Part Project.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Desktop\\ITI Traning\\Web ApI\\project\\API Part Project\\API Part Project\\obj\\",
+        "outputPath": "D:\\Val Squad\\API Part Project\\API Part Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

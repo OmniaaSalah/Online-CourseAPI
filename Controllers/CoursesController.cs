@@ -9,22 +9,22 @@ namespace API_Part_Project.Controllers
 {
     [Route("api/[controller]/[Action]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class CoursesController : ControllerBase
     {
-        IProductRepository Iproductrepository;
-        ICategoriesRepository Icategoriesrepository;
-        public ProductsController(IProductRepository productrepos, ICategoriesRepository categoriesrepository)
+        ICoursesRepository iCoursesRepository;
+        ICategoriesRepository icategoriesrepository;
+        public CoursesController(ICoursesRepository courserepos, ICategoriesRepository categoriesrepository)
         {
-            Iproductrepository = productrepos;
-            Icategoriesrepository = categoriesrepository;
+            iCoursesRepository = courserepos;
+            icategoriesrepository = categoriesrepository;
         }
         [HttpGet]
         public IActionResult GetAll()
         {
             if (ModelState.IsValid)
             {
-                List<Products> prolist = Iproductrepository.GetAll();
-                return Ok(prolist);
+                List<Courses> crslist = iCoursesRepository.GetAll();
+                return Ok(crslist);
             }
             else
             {
@@ -36,8 +36,8 @@ namespace API_Part_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                Products proobj = Iproductrepository.GetByID(id);
-                return Ok(proobj);
+                Courses crsobj = iCoursesRepository.GetByID(id);
+                return Ok(crsobj);
             }
             else
             {
@@ -50,8 +50,8 @@ namespace API_Part_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                List<Products> products = Icategoriesrepository.GetproductBycatID(CateogryiD);
-                return Ok(products);
+                List<Courses> courses = icategoriesrepository.GetCoursesBycatID(CateogryiD);
+                return Ok(courses);
             }
             else
             {
@@ -61,13 +61,13 @@ namespace API_Part_Project.Controllers
 
 
         [HttpPost]
-        public IActionResult Insert(Products p)
+        public IActionResult Insert(Courses c)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    int effectedraws = Iproductrepository.Insert(p);
+                    int effectedraws = iCoursesRepository.Insert(c);
                     return Ok();
                 }
                 catch (Exception ex)
@@ -82,13 +82,13 @@ namespace API_Part_Project.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult Update(int id, Products p)
+        public IActionResult Update(int id, Courses c)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    int effectedraws = Iproductrepository.update(id, p);
+                    int effectedraws = iCoursesRepository.update(id, c);
                     
                     return Ok();
                 }
@@ -107,7 +107,7 @@ namespace API_Part_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                int effectedraws = Iproductrepository.Delete(id);
+                int effectedraws = iCoursesRepository.Delete(id);
                 return Ok();
             }
             else

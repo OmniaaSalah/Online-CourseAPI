@@ -7,8 +7,8 @@ namespace API_Part_Project.Repository
 {
     public class CategoriesRepository : ICategoriesRepository
     {
-        E_Commerce ctx;
-        public CategoriesRepository(E_Commerce context)
+        Online_Courses ctx;
+        public CategoriesRepository(Online_Courses context)
         {
             ctx = context;
         }
@@ -19,10 +19,10 @@ namespace API_Part_Project.Repository
 
 
         }
-        public List<Products> GetproductBycatID(int CateogryiD)
+        public List<Courses> GetCoursesBycatID(int CateogryiD)
         {
-            List<Products> producs = ctx.products.Where(p => p.CateogryiD == CateogryiD).ToList();
-            return producs;
+            List<Courses> courses = ctx.courses.Include(c=>c.category).Include(d => d.date).Where(c => c.CateogryiD == CateogryiD).ToList();
+            return courses;
         }
         public Categories GetByID(int id)
         {

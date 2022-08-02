@@ -9,22 +9,22 @@ namespace API_Part_Project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserAddressController : ControllerBase
+    public class CourseDateController : ControllerBase
     {
 
-        IUserAddressRepository IuseraddressRepository;
-        public UserAddressController(IUserAddressRepository useraddresRepos)
+        ICourseDateRepository iCourseDateRepository;
+        public CourseDateController(ICourseDateRepository coursedateRepos)
         {
-            IuseraddressRepository = useraddresRepos;
+            iCourseDateRepository = coursedateRepos;
         }
         [HttpGet]
         public IActionResult GetAll()
         {
             if (ModelState.IsValid)
             {
-                List<Useraddress> usersAddrlist = IuseraddressRepository.GetAll();
+                List<Date> coursedateslist = iCourseDateRepository.GetAll();
 
-                return Ok(usersAddrlist);
+                return Ok(coursedateslist);
             }
             else
             {
@@ -36,7 +36,7 @@ namespace API_Part_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                Useraddress useraddr = IuseraddressRepository.GetByID(id);
+                Date useraddr = iCourseDateRepository.GetByID(id);
                 return Ok(useraddr);
             }
             else
@@ -45,13 +45,13 @@ namespace API_Part_Project.Controllers
             }
         }
         [HttpPost]
-        public IActionResult Insert(Useraddress ua)
+        public IActionResult Insert(Date d)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    int effectedraws = IuseraddressRepository.Insert(ua);
+                    int effectedraws = iCourseDateRepository.Insert(d);
                     return Ok();
                 }
                 catch (Exception ex)
@@ -66,13 +66,13 @@ namespace API_Part_Project.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult Update(int id, Useraddress ua)
+        public IActionResult Update(int id, Date d)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    int effectedraws = IuseraddressRepository.update(id, ua);
+                    int effectedraws = iCourseDateRepository.update(id, d);
                     return Ok();
                 }
                 catch (Exception ex)
@@ -90,7 +90,7 @@ namespace API_Part_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                int effectedraws = IuseraddressRepository.Delete(id);
+                int effectedraws = iCourseDateRepository.Delete(id);
                 return Ok();
             }
             else

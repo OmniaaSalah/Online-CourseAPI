@@ -35,7 +35,7 @@ namespace API_Part_Project
             services.AddCors(
                 options => options.AddDefaultPolicy(b =>
                 {
-                    b.WithOrigins("http://localhost:2500").
+                    b.WithOrigins("http://localhost:4200").
                     AllowAnyHeader().AllowAnyMethod().AllowCredentials();
                 })
                 );
@@ -82,35 +82,13 @@ namespace API_Part_Project
             });
 
 
-            services.AddDbContext<E_Commerce>(options => options.UseSqlServer(Configuration.GetConnectionString("Cs")));
+            services.AddDbContext<Online_Courses>(options => options.UseSqlServer(Configuration.GetConnectionString("Cs")));
             services.AddScoped<ICategoriesRepository, CategoriesRepository >();
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped< IUserAddressRepository,UserAddressRepository> ();
-            services.AddScoped<IUserMobileRepository, UserMobileRepository>();
-            services.AddScoped<ICartRepository, CartRepository>();
-            services.AddIdentity<Users, IdentityRole>().AddEntityFrameworkStores<E_Commerce>();
-            // services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICoursesRepository,CoursesRepository>();
+            services.AddScoped< ICourseDateRepository,CourseDateRepository> ();
+           
 
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(options =>
-            {
-                options.SaveToken = true;
-                options.RequireHttpsMetadata = false;
-                options.TokenValidationParameters =
-                       new TokenValidationParameters()
-                       {
-                           ValidateIssuer = true,
-                           ValidIssuer = Configuration["JWT:ValidIssuer"],
-                           ValidateAudience = true,
-                           ValidAudience = Configuration["JWT:ValidAudience"],
-                           IssuerSigningKey =
-                            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:SecrtKey"]))
-                       };
-            });
+          
 
         }
 

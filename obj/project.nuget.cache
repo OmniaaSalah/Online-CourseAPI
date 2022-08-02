@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZVFnxtpKtLCtbOKOqrwQEsR4z+K/Qc8WFk+ac4Yhj/K6U9TzvT98mhymo3UYyiQT3MKCflGP7XgyGjR/0F0onA==",
+  "dgSpecHash": "fNMcjwEa3n++ZGEAtJdejnhwhTcPzWS/uXBV7U+5gNRjkYEagRvc12gABE3IUk7Ni4HZmo5KK/PXBlqBQXCmhQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\ITI Traning\\Web ApI\\project\\API Part Project\\API Part Project\\API Part Project.csproj",
+  "projectFilePath": "D:\\Val Squad\\API Part Project\\API Part Project\\API Part Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.16\\microsoft.aspnetcore.authentication.jwtbearer.5.0.16.nupkg.sha512",
